@@ -4,6 +4,7 @@ import java.text.ParseException;
 
 import core.Controller;
 import model.Evento;
+import model.EventoDB;
 import model.EventoIO;
 import views.NovoEventoView;
 
@@ -28,10 +29,10 @@ public class NovoEventoController extends Controller {
 		metadados[4] = evento.isAlarme() ? "ON" : "OFF";
 		
 		try {
-			
-			EventoIO eventoIO = new EventoIO();
-			eventoIO.attach(novoEventoView);
-			eventoIO.salvarEvento(evento);
+			EventoDB eventoModel = new EventoDB();
+			// EventoIO eventoModel = new EventoIO();
+			eventoModel.attach(novoEventoView);
+			eventoModel.salvarEvento(evento);
 			
 		}catch (Exception e) {
 			e.printStackTrace();

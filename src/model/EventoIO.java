@@ -14,7 +14,8 @@ import core.View;
 
 public class EventoIO implements Model {
 
-	private final static String DIRETORIO  = "/home/lucasrod/eclipse-workspace/Eventos/";
+	// private final static String DIRETORIO  = "/home/lucasrod/eclipse-workspace/Eventos/";
+	private final static String DIRETORIO  = "";
 	private final static String FILE = "eventos.txt";
 	private List<View> views = new ArrayList<>();
 	private String notice;
@@ -22,7 +23,7 @@ public class EventoIO implements Model {
 	public void salvarEvento(Evento evento) throws FileNotFoundException {
 		
 		try {
-			
+
 			BufferedWriter writer = new BufferedWriter(new FileWriter(DIRETORIO + FILE));
 			writer.write(evento.toString(), 0, evento.toString().length());
 			writer.newLine();
@@ -39,7 +40,6 @@ public class EventoIO implements Model {
 		Vector<Vector<Object>> dados = new Vector<Vector<Object>>();
 		
 		try {
-			
 			BufferedReader reader = new BufferedReader(new FileReader(DIRETORIO + FILE));
 			String linha = reader.readLine();
 			
